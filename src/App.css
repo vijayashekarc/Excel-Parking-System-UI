@@ -1,0 +1,171 @@
+:root {
+  --primary: #3b82f6;
+  --success: #22c55e;
+  --danger: #ef4444;
+  --dark: #1e293b;
+  --light: #f8fafc;
+  --white: #ffffff;
+  --gray: #94a3b8;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--light);
+  margin: 0; padding: 0;
+  color: var(--dark);
+}
+
+/* --- Layout --- */
+.main-content {
+  padding: 100px 20px 40px 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+/* --- Navbar (Centered Fix) --- */
+.navbar {
+  position: fixed; top: 0; left: 0; width: 100%; height: 70px;
+  background: var(--white);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  display: flex; justify-content: space-between; align-items: center;
+  z-index: 1000;
+  /* Smart padding to match content width */
+  padding: 0 max(20px, calc((100% - 1000px) / 2 + 20px));
+}
+
+.nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.4rem; }
+.nav-links { display: flex; gap: 20px; }
+.nav-item { text-decoration: none; color: var(--gray); font-weight: 600; display: flex; align-items: center; gap: 6px; background: none; border: none; cursor: pointer; font-size: 0.95rem; }
+.nav-item:hover { color: var(--primary); }
+.btn-logout { color: var(--danger); }
+
+/* --- Login --- */
+.login-container { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: var(--light); padding: 20px; }
+.card { background: var(--white); padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); width: 100%; max-width: 400px; }
+.page-container { max-width: 600px; margin: 0 auto; background: var(--white); padding: 30px; border-radius: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
+
+/* --- Forms --- */
+input, select { width: 100%; padding: 14px; margin-bottom: 15px; border: 2px solid #f1f5f9; border-radius: 10px; outline: none; background: #f8fafc; font-size: 1rem; }
+input:focus, select:focus { border-color: var(--primary); background: white; }
+
+.btn-primary { background: var(--dark); color: white; width: 100%; padding: 14px; border: none; border-radius: 10px; font-weight: 600; cursor: pointer; font-size: 1rem; }
+.btn-primary:hover { opacity: 0.9; }
+
+/* --- Dashboard Header --- */
+header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.header-text h1 { margin: 0; font-size: 1.8rem; }
+.subtitle { color: var(--gray); margin: 0; }
+.vehicle-badge { background: white; border: 1px solid #e2e8f0; padding: 8px 16px; border-radius: 12px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+
+/* --- Action Area --- */
+.action-area { display: flex; justify-content: center; margin: 30px 0 50px 0; }
+
+.btn-park-now {
+  background: var(--success); color: white; padding: 18px 30px; font-size: 1.1rem;
+  border: none; border-radius: 16px; font-weight: 800; cursor: pointer;
+  box-shadow: 0 10px 20px rgba(34, 197, 94, 0.3);
+  display: flex; gap: 10px; align-items: center; transition: transform 0.1s;
+}
+.btn-park-now:active { transform: scale(0.98); }
+.btn-park-now span { background: rgba(0,0,0,0.2); padding: 2px 8px; border-radius: 4px; }
+
+/* Active Ticket */
+.active-ticket-card { background: var(--dark); color: white; padding: 25px; border-radius: 20px; width: 100%; max-width: 400px; box-shadow: 0 20px 40px -10px rgba(30, 41, 59, 0.5); }
+.ticket-header { display: flex; justify-content: space-between; font-size: 0.75rem; letter-spacing: 1px; color: #94a3b8; font-weight: 700; margin-bottom: 15px; }
+.live-tag { color: #4ade80; animation: pulse 2s infinite; }
+.ticket-details h1 { margin: 0; font-size: 2.5rem; font-weight: 800; }
+.ticket-details p { color: #cbd5e1; margin: 5px 0 20px 0; font-size: 1.1rem; }
+.btn-exit { background: var(--danger); color: white; padding: 12px 24px; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; width: 100%; }
+
+/* --- Realistic Parking Map --- */
+.parking-structure { 
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+  gap: 40px; justify-content: center; padding-bottom: 50px; 
+}
+
+.floor-wrapper {
+  position: relative; background: var(--white); border-radius: 24px; 
+  padding: 50px 20px 20px 20px; border: 1px solid #e2e8f0;
+}
+
+.floor-label { position: absolute; top: 15px; left: 20px; font-weight: 900; color: #cbd5e1; font-size: 2.5rem; opacity: 0.4; }
+
+.floor-layout {
+  background: #334155; border-radius: 16px; padding: 15px;
+  position: relative; border: 3px solid #475569;
+  box-shadow: inset 0 0 30px rgba(0,0,0,0.6);
+}
+
+.gate {
+  height: 24px; display: flex; align-items: center; justify-content: center;
+  background: repeating-linear-gradient(45deg, #eab308, #eab308 10px, #1a1a1a 10px, #1a1a1a 20px);
+  color: white; font-weight: 800; font-size: 0.7rem; border-radius: 6px; margin: 8px 0;
+}
+.gate span { background: black; padding: 2px 8px; border-radius: 4px; display: flex; align-items: center; gap: 4px; }
+
+.parking-row { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px dashed #475569; padding: 10px 0; }
+.parking-row:last-child { border-bottom: none; }
+
+.bank { display: flex; gap: 6px; }
+.road-lane { flex-grow: 1; height: 50px; display: flex; justify-content: center; }
+.road-dash { border-right: 2px dashed rgba(255,255,255,0.3); height: 100%; }
+
+.spot {
+  width: 36px; height: 55px; border: 2px solid #64748b; border-top: none; border-bottom: none;
+  border-radius: 3px; display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.03);
+}
+.bank.left .spot { border-right: none; border-left: 2px solid #94a3b8; }
+.bank.right .spot { border-left: none; border-right: 2px solid #94a3b8; }
+.spot.occupied { background: transparent; }
+.spot-id { color: #64748b; font-size: 0.75rem; font-weight: bold; }
+
+.spot.my-car {
+  background: rgba(34, 197, 94, 0.2); border-color: #4ade80 !important;
+  box-shadow: 0 0 15px rgba(74, 222, 128, 0.4); z-index: 10;
+}
+
+/* Decor */
+.floor-decor { position: absolute; top: 50%; transform: translateY(-50%) rotate(-90deg); font-size: 0.6rem; font-weight: 800; color: #cbd5e1; letter-spacing: 3px; }
+.left-decor { left: -10px; }
+.right-decor { right: -10px; }
+
+/* --- Digital Pass --- */
+.digital-pass {
+  background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+  color: white; border-radius: 20px; padding: 25px; margin-bottom: 30px;
+  position: relative; overflow: hidden;
+}
+.digital-pass::before {
+  content: ''; position: absolute; top: -50px; right: -50px; width: 150px; height: 150px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1), transparent); border-radius: 50%;
+}
+.pass-header { display: flex; justify-content: space-between; border-bottom: 1px dashed rgba(255,255,255,0.2); padding-bottom: 15px; margin-bottom: 20px; }
+.verified-badge { background: rgba(34,222,128,0.2); color: #4ade80; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: bold; }
+.qr-container { background: white; padding: 10px; border-radius: 12px; width: fit-content; margin: 0 auto 20px; }
+.qr-image { width: 130px; height: 130px; display: block; }
+.scan-instruction { text-align: center; font-size: 0.7rem; font-weight: 600; margin-top: 5px; color: var(--dark); }
+.pass-details { background: rgba(0,0,0,0.2); padding: 15px; border-radius: 12px; }
+.detail-row { display: flex; justify-content: space-between; margin-bottom: 8px; font-size: 0.9rem; }
+.plate-tag { background: #facc15; color: black; padding: 2px 8px; border-radius: 6px; font-family: monospace; font-weight: bold; }
+
+/* --- Modal --- */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15,23,42,0.8); display: flex; justify-content: center; align-items: center; z-index: 2000; padding: 20px; backdrop-filter: blur(4px); }
+.modal { background: white; padding: 30px; border-radius: 24px; width: 100%; max-width: 360px; text-align: center; }
+.card-option { padding: 15px; border: 2px solid var(--primary); background: #eff6ff; color: var(--primary-dark); border-radius: 10px; font-weight: 600; text-align: left; }
+
+@keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+
+/* --- Mobile Fixes --- */
+@media (max-width: 768px) {
+  .navbar { padding: 0 15px; }
+  .brand-name, .link-text { display: none; } /* Icon only */
+  .main-content { padding: 90px 15px 20px 15px; }
+  
+  .floor-wrapper { width: 100%; overflow-x: auto; padding-bottom: 20px; }
+  .parking-row { min-width: max-content; }
+  .btn-park-now { width: 100%; font-size: 1rem; }
+}
