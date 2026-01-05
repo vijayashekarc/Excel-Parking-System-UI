@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useParking } from '../ParkingContext';
-import { LogOut, User, CarFront } from 'lucide-react';
+import { LogOut, User, CarFront, Cctv } from 'lucide-react';
 
 export default function Navbar() {
   const { logout } = useParking();
@@ -20,6 +20,11 @@ export default function Navbar() {
       </div>
       
       <div className="nav-links">
+        <Link to="/dashboard" className="nav-item">
+          < Cctv size={20} />
+          <span className="link-text">Dashboard</span>
+        </Link>
+
         <Link to="/dashboard" className="nav-item">
           <CarFront size={20} />
           <span className="link-text">Dashboard</span>

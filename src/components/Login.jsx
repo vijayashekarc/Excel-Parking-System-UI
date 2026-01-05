@@ -18,7 +18,7 @@ export default function Login() {
     <div className="login-container">
       <div className="card">
         <div style={{textAlign: 'center', marginBottom: '20px', fontSize: '3rem'}}>🅿️</div>
-        <h2 style={{textAlign: 'center'}}>Welcome Driver</h2>
+        <h2 style={{textAlign: 'center'}}>Smart Parking System</h2>
         <p style={{textAlign: 'center', color: '#64748b', marginBottom: '30px'}}>Enter your credentials to access the Smart Parking System.</p>
         
         <form onSubmit={handleLogin}>

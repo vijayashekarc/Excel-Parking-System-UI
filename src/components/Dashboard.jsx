@@ -80,7 +80,7 @@ export default function Dashboard() {
       <div className="parking-structure">
         {parkingData.map((floor, fIndex) => (
           <div key={fIndex} className="floor-wrapper">
-            <div className="floor-label">0{fIndex + 1}</div>
+            <div className="floor-label">0{fIndex + 1} Floor</div>
             
             <div className="floor-layout">
               {/* Entry Gate */}
@@ -120,9 +120,10 @@ export default function Dashboard() {
         <div className="modal-overlay">
           <div className="modal">
             <h2>Payment</h2>
-            <div style={{margin: '20px 0', fontSize: '2rem', fontWeight: 'bold'}}>${cost}.00</div>
+            <div style={{margin: '20px 0', fontSize: '2rem', fontWeight: 'bold'}}>₹{cost}.00</div>
             <div className="fake-cards">
               <div className="card-option selected">💳 Visa **** 4242</div>
+              <h1></h1>
             </div>
             <button className="btn-primary" onClick={processPayment}>Confirm Payment</button>
           </div>
